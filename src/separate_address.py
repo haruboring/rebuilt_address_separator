@@ -17,4 +17,4 @@ def separate_address(original_address: str, zipcode: str) -> SeparatedAddress:
 
 
 if __name__ == "__main__":
-    separate_address("東京都大田区北千束一丁目56ー14　こだまルーミング一丁目302号室", "")
+    separate_address("東京都大田市北千束一丁目56ー14　こだまルーミング一丁目302号室", "")
