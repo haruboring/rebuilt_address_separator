@@ -1,7 +1,7 @@
 from interfaces.utils.check_type import check_type
 from utils.extract.extract_city import extract_city
-from utils.extract_prefecture import extract_prefecture
 from utils.extract.extract_town import extract_town
+from utils.extract_prefecture import extract_prefecture
 
 
 class SeparatedAddress:
