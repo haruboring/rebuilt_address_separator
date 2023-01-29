@@ -14,6 +14,7 @@ def extract_city(address: str) -> str:
     for special_city_name in SPECIAL_CITY_NAMES:
         if re.match(special_city_name, address) is not None:
             return special_city_name
+
     # 市・町・村で分割する
     for special_pattern in ["市", "町", "村"]:
         match = re.search(".+" + special_pattern, address)
