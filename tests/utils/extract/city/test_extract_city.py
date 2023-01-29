@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from src.utils.extract.city.extract_city import extract_city
+from utils.extract.extract_city import extract_city
 
 
 class TestExtractCity(TestCase):

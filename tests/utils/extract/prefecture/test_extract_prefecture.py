@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from src.utils.extract.prefecture.extract_prefecture import extract_prefecture
+from utils.extract_prefecture import extract_prefecture
 
 
 class TestFillSpace(TestCase):
