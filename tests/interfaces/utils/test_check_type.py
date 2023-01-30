@@ -1,0 +1,43 @@
+from unittest import TestCase
+
+from src.interfaces.utils.check_type import check_type
+
+
+class TestTypeCheck(TestCase):
+    def test_check_type(self) -> None:
+        self.assertEqual(check_type(1, int), 1)
+        self.assertEqual(check_type(1, str), "")
+        self.assertEqual(check_type("1", int), "")
+        self.assertEqual(check_type("1", str), "1")
+        self.assertEqual(check_type([1], list), [1])
+        self.assertEqual(check_type([1], str), "")
+        self.assertEqual(check_type("1", list), "")
+        self.assertEqual(check_type("1", str), "1")
+        self.assertEqual(check_type({"1": 1}, dict), {"1": 1})
+        self.assertEqual(check_type({"1": 1}, str), "")
+        self.assertEqual(check_type("1", dict), "")
+        self.assertEqual(check_type("1", str), "1")
+        self.assertEqual(check_type({"1": 1}, dict), {"1": 1})
+        self.assertEqual(check_type({"1": 1}, str), "")
+        self.assertEqual(check_type("1", dict), "")
+        self.assertEqual(check_type("1", str), "1")
+        self.assertEqual(check_type({"1": 1}, dict), {"1": 1})
+        self.assertEqual(check_type({"1": 1}, str), "")
+        self.assertEqual(check_type("1", dict), "")
+        self.assertEqual(check_type("1", str), "1")
+        self.assertEqual(check_type({"1": 1}, dict), {"1": 1})
+        self.assertEqual(check_type({"1": 1}, str), "")
+        self.assertEqual(check_type("1", dict), "")
+        self.assertEqual(check_type("1", str), "1")
+        self.assertEqual(check_type({"1": 1}, dict), {"1": 1})
+        self.assertEqual(check_type({"1": 1}, str), "")
+        self.assertEqual(check_type("1", dict), "")
+        self.assertEqual(check_type("1", str), "1")
+        self.assertEqual(check_type({"1": 1}, dict), {"1": 1})
+        self.assertEqual(check_type({"1": 1}, str), "")
+        self.assertEqual(check_type("1", dict), "")
+        self.assertEqual(check_type("1", str), "1")
+        self.assertEqual(check_type({"1": 1}, dict), {"1": 1})
+        self.assertEqual(check_type({"1": 1}, str), "")
+        self.assertEqual(check_type("1", dict), "")
+        self.assertEqual(check_type("1", str), "1")
