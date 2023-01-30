@@ -2,7 +2,7 @@ import re
 
 from data.special_city_names import SPECIAL_CITY_NAMES
 from data.ward_names_of_tokyo import WARD_NAMES_OF_TOKYO
-from utils.preprocess.edit.reverse_house_number_expression import reverse_house_number_expression
+from utils.edit.reverse_house_number_expression import reverse_house_number_expression
 
 
 def extract_city(address: str) -> tuple[str, str]:

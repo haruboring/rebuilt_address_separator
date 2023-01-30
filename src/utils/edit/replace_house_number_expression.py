@@ -1,6 +1,6 @@
 import re
 
-from utils.preprocess.edit.convert_to_half_width_digit import convert_Chinese_numeral_to_half_width_digit
+from utils.edit.convert_to_half_width_digit import convert_Chinese_numeral_to_half_width_digit
 
 
 def replace_house_number_expression(address: str) -> str:

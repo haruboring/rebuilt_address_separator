@@ -1,7 +1,9 @@
-from utils.preprocess.edit.convert_to_half_width_digit import convert_full_width_digit_to_half_width_digit
-from utils.preprocess.edit.convert_to_hyphen import convert_macron_to_hyphen
-from utils.preprocess.edit.fill_space import fill_space
-from utils.preprocess.edit.replace_house_number_expression import replace_house_number_expression
+from utils.edit.convert_to_half_width_digit import \
+    convert_full_width_digit_to_half_width_digit
+from utils.edit.convert_to_hyphen import convert_macron_to_hyphen
+from utils.edit.fill_space import fill_space
+from utils.edit.replace_house_number_expression import \
+    replace_house_number_expression
 
 
 def preprocess(original_address: str):

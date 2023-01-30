@@ -1,6 +1,6 @@
 import re
 
-from utils.preprocess.edit.reverse_house_number_expression import reverse_house_number_expression
+from utils.edit.reverse_house_number_expression import reverse_house_number_expression
 
 
 def extract_building_name(address: str) -> tuple[str, str]:

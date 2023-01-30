@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from src.utils.preprocess.edit.replace_house_number_expression import replace_house_number_expression
+from src.utils.edit.replace_house_number_expression import replace_house_number_expression
 
 
 class TestReplaceHouseNumberExpression(TestCase):

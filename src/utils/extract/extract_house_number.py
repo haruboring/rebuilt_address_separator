@@ -1,8 +1,8 @@
 import re
 
-from utils.preprocess.edit.convert_to_half_width_digit import convert_Chinese_numeral_to_half_width_digit
-from utils.preprocess.edit.convert_to_hyphen import convert_house_number_expression_to_hyphen
-from utils.preprocess.edit.reverse_house_number_expression import reverse_house_number_expression
+from utils.edit.convert_to_half_width_digit import convert_Chinese_numeral_to_half_width_digit
+from utils.edit.convert_to_hyphen import convert_house_number_expression_to_hyphen
+from utils.edit.reverse_house_number_expression import reverse_house_number_expression
 
 
 def extract_house_number(address: str) -> tuple[str, str]:

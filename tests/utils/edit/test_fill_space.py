@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from src.utils.preprocess.edit.fill_space import fill_space
+from src.utils.edit.fill_space import fill_space
 
 
 class TestFillSpace(TestCase):
