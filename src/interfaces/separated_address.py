@@ -1,5 +1,6 @@
 from interfaces.utils.check_type import check_type
 from utils.extract.extract_city import extract_city
+from utils.extract.extract_house_number import extract_house_number
 from utils.extract.extract_town import extract_town
 from utils.extract_prefecture import extract_prefecture
 
@@ -17,7 +18,7 @@ class SeparatedAddress:
         self.town: str = check_type(extract_town(rest_address), str)
         rest_address = rest_address.replace(self.town, "", 1)
 
-        self.house_number: str = check_type("", str)
+        self.house_number: str = check_type(extract_house_number(rest_address), str)
         rest_address = rest_address.replace(self.house_number, "", 1)
 
         self.building_name: str = check_type("", str)
