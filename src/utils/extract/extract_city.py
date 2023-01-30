@@ -18,7 +18,7 @@ def extract_city(address: str) -> tuple[str, str]:
 
     # 市・町・村で分割する
     for special_pattern in ["市", "町", "村"]:
-        match = re.search(".+" + special_pattern, address)
+        match = re.search(".+?" + special_pattern, address)
         if match is not None:
             return reverse_house_number_expression(match.group()), address.replace(match.group(), "", 1)
 
