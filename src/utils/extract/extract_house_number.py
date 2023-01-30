@@ -11,6 +11,9 @@ def extract_house_number(address: str) -> tuple[str, str]:
         house_number: str = match.group()
         house_number = convert_house_number_expression_to_hyphen(house_number)
         house_number = convert_Chinese_numeral_to_half_width_digit(house_number)
+        # 1-2-3-のようになっている場合がある
+        if house_number[len(house_number) - 1] == "-":
+            house_number = house_number[:-1]
         return house_number, address.replace(match.group(), "", 1)
 
     return "", address
