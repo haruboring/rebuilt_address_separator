@@ -8,12 +8,12 @@ from utils.extract.extract_town import extract_town
 
 
 class SeparatedAddress:
-    def __init__(self, address: str):
-        rest_address: str = address
+    def __init__(self, preprocessed_address: str, original_address: str):
+        rest_address: str = preprocessed_address
 
-        self.original_address: str = address
+        self.original_address: str = original_address
 
-        prefecture, rest_address = extract_prefecture(address)
+        prefecture, rest_address = extract_prefecture(rest_address)
         self.prefecture: str = check_type(prefecture, str)
 
         city, rest_address = extract_city(rest_address)
