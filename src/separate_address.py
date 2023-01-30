@@ -12,7 +12,7 @@ def separate_address(original_address: str, zipcode: str) -> SeparatedAddress:
     separated_address: SeparatedAddress = SeparatedAddress(preprocessed_address, original_address)
 
     # debug
-    separated_address.debug_print()
+    print(separated_address)
 
     return separated_address
 

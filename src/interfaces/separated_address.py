@@ -31,12 +31,13 @@ class SeparatedAddress:
         room_number = extract_room_number(rest_address)
         self.room_number: str = check_type(room_number, str)
 
-    def debug_print(self):
-        print("original_address = " + self.original_address)
-        print("prefecture = " + self.prefecture)
-        print("city = " + self.city)
-        print("town = " + self.town)
-        print("house_number = " + self.house_number)
-        print("building_name = " + self.building_name)
-        print("room_number = " + self.room_number)
-        print()
+    def __str__(self):
+        return (
+            "original_address = " + self.original_address + "\n"
+            "prefecture = " + self.prefecture + "\n"
+            "city = " + self.city + "\n"
+            "town = " + self.town + "\n"
+            "house_number = " + self.house_number + "\n"
+            "building_name = " + self.building_name + "\n"
+            "room_number = " + self.room_number + "\n"
+        )
