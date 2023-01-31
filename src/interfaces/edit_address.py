@@ -1,7 +1,7 @@
 import re
 
 
-class EditOriginalAddress:
+class EditAddress:
     @staticmethod
     def convert_full_width_digit_to_half_width_digit(string: str) -> str:
         """
@@ -93,6 +93,16 @@ class EditOriginalAddress:
 
         return formatted_address
 
+    @staticmethod
+    def reverse_house_number_expression(address: str) -> str:
+        address = address.replace("/tyoume", "丁目")
+        address = address.replace("/banti", "番地")
+        address = address.replace("/ban", "番")
+        address = address.replace("/gou", "号")
+        formatted_address: str = address.replace("/no", "の")
+
+        return formatted_address
+
     @classmethod
     def replace_house_number_expression(cls, address: str) -> str:
         address = address.replace("丁目", "/tyoume")
@@ -106,15 +116,5 @@ class EditOriginalAddress:
             matched_string: str = match.group()
             formatted_string = cls.convert_Chinese_numeral_to_half_width_digit(matched_string)
             formatted_address = formatted_address.replace(matched_string, formatted_string, 1)
-
-        return formatted_address
-
-    @staticmethod
-    def reverse_house_number_expression(address: str) -> str:
-        address = address.replace("/tyoume", "丁目")
-        address = address.replace("/banti", "番地")
-        address = address.replace("/ban", "番")
-        address = address.replace("/gou", "号")
-        formatted_address: str = address.replace("/no", "の")
 
         return formatted_address

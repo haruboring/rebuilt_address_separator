@@ -3,7 +3,7 @@ import re
 from data.prefecture_names import PREFECTURE_NAMES
 from data.special_city_names import SPECIAL_CITY_NAMES
 from data.ward_names_of_tokyo import WARD_NAMES_OF_TOKYO
-from interfaces.edit_original_address import EditOriginalAddress
+from interfaces.edit_address import EditAddress
 
 
 class ExtractAddress:
@@ -33,7 +33,7 @@ class ExtractAddress:
         for special_pattern in ["市", "町", "村"]:
             match = re.search(".+?" + special_pattern, address)
             if match is not None:
-                return EditOriginalAddress.reverse_house_number_expression(match.group()), address.replace(match.group(), "", 1)
+                return EditAddress.reverse_house_number_expression(match.group()), address.replace(match.group(), "", 1)
 
         # 市名が存在しない
         return "", address
@@ -43,7 +43,7 @@ class ExtractAddress:
         if re.search("[0-9]+", address) is not None:
             town_and_rest_address: list[str] = re.split("[0-9]+", address, 1)
             town: str = town_and_rest_address[0]
-            return EditOriginalAddress.reverse_house_number_expression(town), address.replace(town, "", 1)
+            return EditAddress.reverse_house_number_expression(town), address.replace(town, "", 1)
 
         else:
             return address, ""
@@ -53,8 +53,8 @@ class ExtractAddress:
         match = re.match("[0-9〇一二三四五六七八九/tyoume/banti/ban/gou/no-]+", address)
         if match is not None:
             house_number: str = match.group()
-            house_number = EditOriginalAddress.convert_house_number_expression_to_hyphen(house_number)
-            house_number = EditOriginalAddress.convert_Chinese_numeral_to_half_width_digit(house_number)
+            house_number = EditAddress.convert_house_number_expression_to_hyphen(house_number)
+            house_number = EditAddress.convert_Chinese_numeral_to_half_width_digit(house_number)
             # 1-2-3-のようになっている場合がある
             if house_number[len(house_number) - 1] == "-":
                 house_number = house_number[:-1]
@@ -66,8 +66,8 @@ class ExtractAddress:
     def extract_building_name(address: str) -> tuple[str, str]:
         building_name_and_rest_address: list[str] = re.split("[0-9]+", address, 1)
         building_name: str = building_name_and_rest_address[0]
-        return EditOriginalAddress.reverse_house_number_expression(building_name), address.replace(building_name, "", 1)
+        return EditAddress.reverse_house_number_expression(building_name), address.replace(building_name, "", 1)
 
     @staticmethod
     def extract_room_number(address: str) -> str:
-        return EditOriginalAddress.reverse_house_number_expression(address)
+        return EditAddress.reverse_house_number_expression(address)
