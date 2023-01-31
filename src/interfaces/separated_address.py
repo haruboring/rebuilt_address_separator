@@ -1,5 +1,6 @@
-from interfaces.utils.check_type import check_type
 from interfaces.extract_address import ExtractAddress
+from interfaces.utils.check_type import check_type
+
 
 class SeparatedAddress:
     def __init__(self, preprocessed_address: str, original_address: str):
