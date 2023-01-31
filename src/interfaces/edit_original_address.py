@@ -1,11 +1,9 @@
 import re
 
-from utils.edit.convert_to_half_width_digit import convert_Chinese_numeral_to_half_width_digit
-
 
 class EditOriginalAddress:
-    @classmethod
-    def convert_full_width_digit_to_half_width_digit(cls, string: str) -> str:
+    @staticmethod
+    def convert_full_width_digit_to_half_width_digit(string: str) -> str:
         """
         args: address_data: str (example: 東京都港区元麻布1-６-9)
         return: formatted_address_data: str (example: 東京都港区元麻布1-6-9)
@@ -34,8 +32,8 @@ class EditOriginalAddress:
 
         return formatted_string
 
-    @classmethod
-    def convert_Chinese_numeral_to_half_width_digit(cls, string: str) -> str:
+    @staticmethod
+    def convert_Chinese_numeral_to_half_width_digit(string: str) -> str:
         """
         args: address_data: str (example: 東京都港区元麻布1-六-9)
         return: formatted_address_data: str (example: 東京都港区元麻布1-6-9)
@@ -64,8 +62,8 @@ class EditOriginalAddress:
 
         return formatted_string
 
-    @classmethod
-    def convert_macron_to_hyphen(cls, address: str) -> str:
+    @staticmethod
+    def convert_macron_to_hyphen(address: str) -> str:
         formatted_address: str = address
 
         # 1ー43のような形は一つ目が番地と考えられるのでsearchでいい
@@ -77,8 +75,8 @@ class EditOriginalAddress:
 
         return formatted_address
 
-    @classmethod
-    def convert_house_number_expression_to_hyphen(cls, address: str) -> str:
+    @staticmethod
+    def convert_house_number_expression_to_hyphen(address: str) -> str:
         address = address.replace("/tyoume", "-")
         address = address.replace("/banti", "-")
         address = address.replace("/ban", "-")
@@ -87,8 +85,8 @@ class EditOriginalAddress:
 
         return formatted_address
 
-    @classmethod
-    def fill_space(cls, address: str) -> str:
+    @staticmethod
+    def fill_space(address: str) -> str:
         address = address.replace(" ", "")
         address = address.replace("　", "")
         formatted_address: str = address.replace("　", "")
@@ -106,13 +104,13 @@ class EditOriginalAddress:
         match = re.search("[〇-九]+/tyoume", address)
         if match is not None:
             matched_string: str = match.group()
-            formatted_string = convert_Chinese_numeral_to_half_width_digit(matched_string)
+            formatted_string = cls.convert_Chinese_numeral_to_half_width_digit(matched_string)
             formatted_address = formatted_address.replace(matched_string, formatted_string, 1)
 
         return formatted_address
 
-    @classmethod
-    def reverse_house_number_expression(cls, address: str) -> str:
+    @staticmethod
+    def reverse_house_number_expression(address: str) -> str:
         address = address.replace("/tyoume", "丁目")
         address = address.replace("/banti", "番地")
         address = address.replace("/ban", "番")
