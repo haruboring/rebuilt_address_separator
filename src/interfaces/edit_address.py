@@ -1,7 +1,7 @@
 import re
 
 
-class EditOriginalAddress:
+class EditAddress:
     @staticmethod
     def convert_full_width_digit_to_half_width_digit(string: str) -> str:
         """
